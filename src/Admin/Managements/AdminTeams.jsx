@@ -16,7 +16,7 @@ export const AdminTeams = () => {
   const [position , setPosition] = useState("");
   const [loading, setLoading] = useState(true);
   const [menu , setMenu] = useState(false);
-  const [deleteLoading, setDeleteloading] = useState(false)
+  const [deleteLoading, setDeleteloading] = useState(false);
 
   const handleImage = (e)=> {
     const file = e.target.files[0];
