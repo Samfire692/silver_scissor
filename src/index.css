@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+:root{
+  --primary: red;
+  --primary-light:pink;
+  --primary-dark:black;
+  --primary-background:rgb(203, 231, 243);
+
+  --primary-radius:8px;
+  --primary-text:30px;
+  --primary-logoColour:gold;
+}
+
+.background{
+  background-image: url(assets/salon\ background.jfif);
+  background-repeat: no-repeat;
+  background-size:cover;
+  background-position: center;
+}
+
+/* h1{
+  background:var(--primary-dark);
+} */
+
+/* .bg{
+  background-color:var(--primary-background);
+} */
+
+input, textarea{
+  border-radius:var(--primary-radius);
+}
+
+button{
+  cursor: pointer;
+  border-radius:var(--primary-radius);
+}
+
+.navbar{
+ background:linear-gradient(black,rgba(255, 174, 0, 0.371)), url(assets/salon\ background.jfif);
+ background-repeat: no-repeat;
+ background-position:center;
+ background-size: cover;
+}
+
+h3{
+  font-size:var(--primary-text);
+  line-height:1.6rem;
+  font-family:"fantasy";
+  letter-spacing: 2px;
+  font-weight:bold;
+  /* color: var(--primary-logoColour); */
+}
