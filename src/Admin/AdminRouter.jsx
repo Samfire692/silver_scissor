@@ -11,6 +11,7 @@ import { AdminSettings } from './AdminSettings';
 import { SubadminSignup } from './SubadminSignup';
 import { supabase } from '../supabaseClient';
 import profilepic from '../assets/profile pic.jfif'
+import { ProfileSetup } from './ProfileSetup';
 
 export const AdminRouter = () => {
 
@@ -64,7 +65,7 @@ export const AdminRouter = () => {
                 <div className='flex justify-between mb-2'>
                     <div className='flex gap-2 my-auto'>
                          <button className='p-1 h-fit border' onClick={()=> setNavbar(!navbar)}>
-                          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
 	                        <path d="M0 0h24v24H0z" fill="none" />
 	                        <path fill="currentColor" fill-rule="evenodd" d="M3 16h18v2H3zm0-5h18v2H3zm0-5h18v2H3z" />
                           </svg>
@@ -73,7 +74,7 @@ export const AdminRouter = () => {
                          
                     </div>
 
-                    <div className='shadow-sm px-2 py-1 gap-1 rounded-xl text-amber-400' style={{background:"black"}}>
+                    <div className='shadow-sm px-2 py-1 gap-1 rounded-xl text-white bg-slate-700'>
                        <div className={`flex gap-2 transition-all duration-500 overflow-hidden cursor-pointer ${dropDown ? "w-35" : "w-8"}`} onClick={()=> setDropdown(!dropDown)}>
                           <img src={profilepic} alt={`profile pic for ${admin?.firstname}`} className={`w-8 rounded-full h-fit my-auto transition-all duration-500 ${dropDown ? "rotate-360" :""}`}/>
 
@@ -101,6 +102,7 @@ export const AdminRouter = () => {
      </Route>
 
       <Route path='/adminlogin' element={<AdminLogin/>}/>
+      <Route path='/profilesetup' element={<ProfileSetup/>}/>
    </Routes>
   )
 }

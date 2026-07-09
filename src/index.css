@@ -36,7 +36,7 @@ button{
 }
 
 .navbar{
- background:linear-gradient(black,rgba(255, 174, 0, 0.371)), url(assets/salon\ background.jfif);
+ background:linear-gradient(black, rgba(192, 192, 192, 0.236)), url(assets/salon\ background.jfif);
  background-repeat: no-repeat;
  background-position:center;
  background-size: cover;

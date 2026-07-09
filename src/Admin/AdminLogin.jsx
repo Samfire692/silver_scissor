@@ -11,6 +11,7 @@ export const AdminLogin = () => {
     const [password , setPassword] = useState("");
     const [passwordType , setPasswordtype] = useState("");
     const [submitLoading, setSubmitloading] = useState(false);
+    const [profileCompleted, setProfilecompleted] = useState([]);
     const navigate = useNavigate();
 
     const login = async(e)=> {
@@ -32,8 +33,25 @@ export const AdminLogin = () => {
           }
           
           localStorage.setItem("AdminProfile", JSON.stringify(adminProfile));
+          // console.log(adminProfile)
 
-          navigate("/admindashboard");
+          const {data:dbData , error:dbError} = await supabase
+          .from("SS_adminsignup")
+          .select("*")
+          .eq("id", adminProfile?.id)
+          .limit(1)
+          .maybeSingle();
+          
+           if(dbError) throw dbError;
+           setProfilecompleted(dbData)
+          //  console.log(dbData);
+          //  console.log("Error", dbError)
+
+          if(dbData?.profile_completed === "false"){
+            navigate("/profilesetup")
+          }else{
+            navigate("/admindashboard"); 
+          }
         }catch(error){
             toast.error(error.message);
         }finally{

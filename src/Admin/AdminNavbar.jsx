@@ -17,7 +17,7 @@ export const AdminNavbar = () => {
         <div> 
             {/* logo */}
             <div className='w-50 mx-auto py-6'>
-                <div className='flex gap-3 w-fit text-amber-300'>
+                <div className='flex gap-3 w-fit text-slate-300'>
                   <span className='my-auto'>
                   <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 256 256">
 	              <path d="M0 0h256v256H0z" fill="none" />
@@ -34,7 +34,7 @@ export const AdminNavbar = () => {
             {/* Links */}
             <div className='p-3 grid gap-2'>
     
-                <NavLink to={"/admindashboard"} className={({isActive}) =>`p-2 rounded-lg ${ isActive ? "bg-amber-500 text-white" : "text-amber-400 hover:bg-amber-500 hover:text-white"}`}>
+                <NavLink to={"/admindashboard"} className={({isActive}) =>`p-2 rounded-lg ${ isActive ? "bg-slate-400 text-white" : "text-slate-300 hover:bg-slate-400 hover:text-white"}`}>
                  <div className='flex gap-1'>
                     <span className='my-auto'>
                         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24">
@@ -48,7 +48,7 @@ export const AdminNavbar = () => {
                  </div>
                </NavLink>
 
-                <NavLink to={"/adminmanagement"} className={({isActive})=> `p-2 rounded-lg ${isActive ? "bg-amber-500 text-white" : "text-amber-400 hover:bg-amber-500 hover:text-white"}`}>
+                <NavLink to={"/adminmanagement"} className={({isActive})=> `p-2 rounded-lg ${isActive ? "bg-slate-400 text-white" : "text-slate-300 hover:bg-slate-400 hover:text-white"}`}>
                  <div className='flex gap-1'>
                     <span className='my-auto'>
                         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 2048 2048">
@@ -62,7 +62,7 @@ export const AdminNavbar = () => {
                  </div>
                </NavLink>
 
-                <NavLink to={"/adminbookings"} className={({isActive})=> `p-2 rounded-lg ${isActive ? "bg-amber-500 text-white" : "text-amber-400 hover:bg-amber-500 hover:text-white"}`}>
+                <NavLink to={"/adminbookings"} className={({isActive})=> `p-2 rounded-lg ${isActive ? "bg-slate-400 text-white" : "text-slate-300 hover:bg-slate-400 hover:text-white"}`}>
                  <div className='flex gap-1'>
                     <span className='my-auto'>
                         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24">
@@ -76,7 +76,7 @@ export const AdminNavbar = () => {
                  </div>
                </NavLink>
 
-                <NavLink to={"/adminsetting"} className={({isActive})=> ` p-2 rounded-lg ${isActive ? "bg-amber-500 text-white" : "text-amber-400 hover:bg-amber-500 hover:text-white"}`}>
+                <NavLink to={"/adminsetting"} className={({isActive})=> ` p-2 rounded-lg ${isActive ? "bg-slate-400 text-white" : "text-slate-300 hover:bg-slate-400 hover:text-white"}`}>
                  <div className=' flex gap-1'>
                     <span className='my-auto'>
                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24">
@@ -90,7 +90,7 @@ export const AdminNavbar = () => {
                  </div>
                </NavLink>
 
-                <NavLink to={"/subadminsignup"} className={({isActive})=> `p-2 rounded-lg ${isActive ? "bg-amber-500 text-white" : "text-amber-400 hover:bg-amber-500 hover:text-white"}`}>
+                <NavLink to={"/"} className={({isActive})=> `p-2 rounded-lg ${isActive ? "bg-slate-400 text-white" : "text-slate-300 hover:bg-slate-400 hover:text-white"}`}>
                  <div className='flex gap-1'>
                     <span className='my-auto'>
                         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24">
@@ -105,7 +105,7 @@ export const AdminNavbar = () => {
                </NavLink>
 
                 <NavLink to={"/adminlogin"} className='' onClick={logOut}>
-                 <div className='text-amber-400 hover:bg-amber-500 hover:text-white flex gap-1 p-2 rounded-lg'>
+                 <div className='text-slate-300 hover:bg-slate-400 hover:text-white flex gap-1 p-2 rounded-lg'>
                     <span className='my-auto'>
                         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24">
 	                    <path d="M0 0h24v24H0z" fill="none" />
