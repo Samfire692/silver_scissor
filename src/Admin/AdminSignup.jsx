@@ -45,6 +45,7 @@ export const AdminSignup = () => {
        email
      })
 
+
      if(dbError) throw dbError;
      setSubmitloading("Verify");
 
