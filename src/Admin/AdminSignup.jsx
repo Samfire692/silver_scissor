@@ -38,7 +38,18 @@ export const AdminSignup = () => {
        return;
      }
 
-     console.log(authData.user.email_confirmed_at)
+     const {data:dbData, error:dbError} = await supabase
+     .from("SS_adminsignup")
+     .insert({
+       id:authData.user.id,
+       email
+     })
+
+     if(dbError) throw dbError;
+     setSubmitloading("Verify");
+
+    //  console.log(authData.user.email_confirmed_at)
+    alert(password);
     }catch(error){
       toast.error(error.message)
     }finally{

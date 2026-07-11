@@ -1,11 +1,74 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Profilepic } from './Profilesetup/Profilepic'
 import { ProfileInfo } from './Profilesetup/ProfileInfo'
 import { Profiledescription } from './Profilesetup/Profiledescription'
+import { useNavigate } from 'react-router-dom'
+import { supabase } from '../supabaseClient'
+import { toast } from 'sonner'
 
 export const ProfileSetup = () => {
 
-    const [steps , setStep] = useState(1)
+    const [steps , setStep] = useState(1);
+    const navigate = useNavigate();
+    const [adminProfile , setAdminprofile]= useState(null);
+
+    const fetchData = async()=> {
+    try{
+      const adminprofile = JSON.parse(localStorage.getItem("AdminProfile"));
+
+      const {data:dbData , error:dbError} = await supabase
+      .from("SS_adminsignup")
+      .select("*")
+      .eq("id", adminprofile?.id)
+      .maybeSingle();
+
+      if(dbError) throw dbError;
+      setAdminprofile(dbData);
+    }catch(error){
+      toast.error(error.message);
+    }finally{
+
+    }
+   }
+
+   const profileCheck =
+   adminProfile?.fullname &&
+   adminProfile?.phone_number &&
+   adminProfile?.username &&
+   adminProfile?.img_url &&
+   adminProfile?.description && 
+   adminProfile?.position
+
+   useEffect(()=> {
+      fetchData();
+   }, [])
+
+
+    const finish = async()=> {
+       try{
+        if(!profileCheck){
+         toast.error("Please complete your profile before continuing.");   
+         return;
+        }
+
+         const {error} = await supabase
+         .from("SS_adminsignup")
+         .update({
+          profile_completed:"true"
+          })
+         .eq("id", adminProfile?.id)
+
+         if(error) throw error;
+         toast.success("Please wait.");
+
+         setTimeout(()=> {
+            navigate("/admindashboard");
+         }, 3000)
+       }catch(error){
+          toast.error(error.message);
+       }
+    }
+
   return (
     <div className='p-2'>
         {/* <div>
@@ -37,7 +100,10 @@ export const ProfileSetup = () => {
         </div>
 
         <div className='fixed bottom-2 flex right-2'>
-            <button className='bg-blue-500 w-25 p-1.5 text-white' onClick={()=> setStep(steps + 1)}>Next</button>
+           {steps === 3 ? 
+           <button className='bg-blue-500 w-25 p-1.5 text-white' onClick={finish}>Finish</button> 
+        
+           :<button className='bg-blue-500 w-25 p-1.5 text-white' onClick={()=> setStep(steps + 1)}>Next</button> }
         </div>
     </div>
   )

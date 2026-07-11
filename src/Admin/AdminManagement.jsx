@@ -29,7 +29,7 @@ export const AdminManagement = () => {
           )}
 
          {active === "gallery" && (
-           <div>
+           <div className='mt-2'>
              <AdminGallery/>
            </div>
           )}

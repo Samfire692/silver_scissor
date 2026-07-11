@@ -29,17 +29,16 @@ export const AdminRouter = () => {
       navigate("/adminlogin");
       }
 
-      const {data: {user} , error} = await supabase.auth.getUser();
-
       const {data:adminData , error:adminError} = await supabase
       .from("SS_adminsignup")
       .select("*")
-      .eq("id", user?.id)
+      .eq("id", adminProfile?.id)
       .limit(1)
       .maybeSingle();
 
       if(adminError) throw adminError;
       setAdmin(adminData);
+      console.log(adminData)
 
     }catch(error){
        console.log(error.message)
@@ -75,12 +74,12 @@ export const AdminRouter = () => {
                     </div>
 
                     <div className='shadow-sm px-2 py-1 gap-1 rounded-xl text-white bg-slate-700'>
-                       <div className={`flex gap-2 transition-all duration-500 overflow-hidden cursor-pointer ${dropDown ? "w-35" : "w-8"}`} onClick={()=> setDropdown(!dropDown)}>
-                          <img src={profilepic} alt={`profile pic for ${admin?.firstname}`} className={`w-8 rounded-full h-fit my-auto transition-all duration-500 ${dropDown ? "rotate-360" :""}`}/>
+                       <div className={`flex gap-2 transition-all duration-500 overflow-hidden cursor-pointer h-9 ${dropDown ? "w-35" : "w-8"}`} onClick={()=> setDropdown(!dropDown)}>
+                          <img src={admin?.img_url} alt={`profile pic for ${admin?.firstname}`} className={`w-8 rounded-full h-8 my-auto transition-all duration-500 object-cover ${dropDown ? "rotate-360" :""}`}/>
 
                           <div className='my-auto'>
-                              <p className='text-sm font-bold text-center'>{admin?.role || "Admin"}</p>
-                              <p className='text-xs font-bold flex gap-1 justify-center'><span>{admin?.surname}</span> <span>{admin?.firstname}</span></p> 
+                            <p className='text-xs font-bold'>{admin?.role || "Admin"}</p>
+                            <p className='text-sm font-bold capitalize'><span>{admin?.username}</span></p>   
                           </div>
                          </div>  
                     </div>
