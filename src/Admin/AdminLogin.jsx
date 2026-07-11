@@ -11,7 +11,6 @@ export const AdminLogin = () => {
     const [password , setPassword] = useState("");
     const [passwordType , setPasswordtype] = useState("");
     const [submitLoading, setSubmitloading] = useState(false);
-    const [profileCompleted, setProfilecompleted] = useState([]);
     const navigate = useNavigate();
 
     const login = async(e)=> {
@@ -25,14 +24,12 @@ export const AdminLogin = () => {
           })
 
           if(authError) throw authError;
-          setSubmitloading(false)
+          
           toast.success("Login successfull!");
           
           const adminProfile = {
             id:authData.user.id
           }
-          
-          localStorage.setItem("AdminProfile", JSON.stringify(adminProfile));
           // console.log(adminProfile)
 
           const {data:dbData , error:dbError} = await supabase
@@ -43,15 +40,21 @@ export const AdminLogin = () => {
           .maybeSingle();
           
            if(dbError) throw dbError;
-           setProfilecompleted(dbData)
           //  console.log(dbData);
           //  console.log("Error", dbError)
 
+          if(!dbData){
+            toast.error("Profile not found");
+            return;
+          }
+          
           if(dbData?.profile_completed === "false"){
             navigate("/profilesetup")
           }else{
             navigate("/admindashboard"); 
           }
+
+          localStorage.setItem("AdminProfile", JSON.stringify(adminProfile));
         }catch(error){
             toast.error(error.message);
         }finally{

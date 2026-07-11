@@ -38,7 +38,6 @@ export const AdminRouter = () => {
 
       if(adminError) throw adminError;
       setAdmin(adminData);
-      console.log(adminData)
 
     }catch(error){
        console.log(error.message)

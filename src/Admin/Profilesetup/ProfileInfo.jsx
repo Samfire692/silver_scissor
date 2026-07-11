@@ -39,7 +39,7 @@ export const ProfileInfo = () => {
    const fetchData = async()=> {
     try{
       const adminprofile = JSON.parse(localStorage.getItem("AdminProfile"));
-      console.log(adminprofile?.id)
+      // console.log(adminprofile?.id)
 
       const {data:dbData , error:dbError} = await supabase
       .from("SS_adminsignup")

@@ -49,6 +49,11 @@ export const Profilepic = () => {
       const file = selectedFile;
 
       const allowedTypes = ["png", "jpeg", "jpg", "webp"];
+
+      if(!file){
+        toast.warning("Please select an image");
+      }
+
       const extension = file.name.split(".").pop().toLowerCase();
 
       if(!allowedTypes.includes(extension)){
@@ -89,7 +94,14 @@ export const Profilepic = () => {
 
       if(adminError) throw adminError;
       toast.success("Saved successfully!");
-      setSaveloading(false);
+      setAdminprofile(prev => ({
+        ...prev, 
+        img_url:data.secure_url,
+        public_id:data.public_id
+      }));
+
+      setImgprev(null);
+      setSelectedfile(null);
     }catch(error){
        toast.error(error.message);
     }finally{
@@ -153,9 +165,9 @@ export const Profilepic = () => {
 
        <div className='flex h-[60vh] justify-center place-items-center'>
           <div className='flex'>
-              <div className='w-55 h-55 rounded-full flex justify-center place-items-center border-4 border-dashed border-slate-300 hover:border-slate-500'>
-                <input type="file" name="" id="" accept='image/*' className='h-55 w-55 opacity-0 z-10' onChange={handleImage}/>
-              <button className='absolute text-slate-400 h-fit' type='button'>
+              <div className='w-55 h-55 rounded-full flex justify-center place-items-center border-4 border-dashed border-slate-300 hover:border-slate-500 overflow-hidden'>
+                <input type="file" name="" id="" accept='image/*' className='inset-0 w-full h-full cursor-pointer z-30 opacity-0' onChange={handleImage}/>
+              <button className='absolute text-slate-400 h-fit pointer-events-none'>
                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
 	              <path d="M0 0h24v24H0z" fill="none" />
 	              <path fill="currentColor" d="M11.5 8C14 8 16 10 16 12.5S14 17 11.5 17S7 15 7 12.5S9 8 11.5 8m0 1A3.5 3.5 0 0 0 8 12.5a3.5 3.5 0 0 0 3.5 3.5a3.5 3.5 0 0 0 3.5-3.5A3.5 3.5 0 0 0 11.5 9M5 5h2l2-2h5l2 2h2a3 3 0 0 1 3 3v9a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3V8a3 3 0 0 1 3-3m4.41-1l-2 2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h13a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-2.41l-2-2z" />
