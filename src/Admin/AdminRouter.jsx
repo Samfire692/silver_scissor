@@ -73,8 +73,8 @@ export const AdminRouter = () => {
                     </div>
 
                     <div className='shadow-sm px-2 py-1 gap-1 rounded-xl text-white bg-slate-700'>
-                       <div className={`flex gap-2 transition-all duration-500 overflow-hidden cursor-pointer h-9 ${dropDown ? "w-35" : "w-8"}`} onClick={()=> setDropdown(!dropDown)}>
-                          <img src={admin?.img_url} alt={`profile pic for ${admin?.firstname}`} className={`w-8 rounded-full h-8 my-auto transition-all duration-500 object-cover ${dropDown ? "rotate-360" :""}`}/>
+                       <div className={`flex gap-2 justify-evenly transition-all duration-500 overflow-hidden cursor-pointer ${dropDown ? "w-30" : "w-8"}`} onClick={()=> setDropdown(!dropDown)}>
+                          <img src={admin?.img_url} alt={`profile pic for ${admin?.firstname}`} className={`w-8 rounded-full h-8 my-auto transition-all duration-500 object-cover bg-blue-300 ${dropDown ? "rotate-360" :""}`}/>
 
                           <div className='my-auto'>
                             <p className='text-xs font-bold'>{admin?.role || "Admin"}</p>
