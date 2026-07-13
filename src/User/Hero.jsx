@@ -1,5 +1,4 @@
 import React, { useEffect, useLayoutEffect, useRef } from 'react'
-import pic from "C:/Silver Scissors/src/assets/salon background.jfif"
 import vid from "../assets/video/3998509-uhd_4096_2160_25fps.mp4"
 import gsap from 'gsap'
 
