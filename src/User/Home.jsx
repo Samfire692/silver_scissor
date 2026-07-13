@@ -2,6 +2,8 @@ import React, { useRef, useLayoutEffect } from 'react'
 import { Navbar } from './Navbar'
 import { Hero } from './Hero'
 import { About } from './About'
+import { Services } from './Services'
+import { Team } from './Team'
 
 export const Home = () => {
   return (
@@ -19,12 +21,22 @@ export const Home = () => {
       </section><br />
 
       <section id='about'>
-        <div className='overflow-hidden'>
+        <div className=''>
           <About/>
         </div>
-      </section>
+      </section><br />
 
-      hello
+      <section>
+        <div>
+          <Services/>
+        </div>
+      </section><br />
+
+      <section>
+        <div>
+          <Team/>
+        </div>
+      </section><br />
     </div>
   )
 }

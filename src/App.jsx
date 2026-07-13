@@ -4,12 +4,14 @@ import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import './App.css'
 import { AdminRouter } from './Admin/AdminRouter'
+import { Router } from './User/Router'
 
 function App() {
 
   return (
     <>
-      <AdminRouter/>
+     <Router/>
+     <AdminRouter/>
     </>
   )
 }

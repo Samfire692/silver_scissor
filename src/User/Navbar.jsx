@@ -38,14 +38,14 @@ export const Navbar = () => {
 
           <div className='justify-around lg:flex hidden my-auto'>
              {links.map((lik)=> (
-                <NavLink>{lik}</NavLink>
+                <NavLink key={lik.id}>{lik}</NavLink>
              ))}
           </div>
 
          {navbar && (
              <div className='lg:hidden bg-black/30 w-full h-fit flex flex-col gap-4 my-2 rounded-2xl p-3'>
                {links.map((lik)=> (
-                <NavLink className={`p-2 text-center font-bold`}>{lik}</NavLink>
+                <NavLink key={lik.id} className={`p-2 text-center font-bold`}>{lik}</NavLink>
                ))}
              </div>
          )}

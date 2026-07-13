@@ -99,10 +99,7 @@ export const AdminRouter = () => {
         <Route path='/adminsetting' element={<AdminSettings/>}/>
         <Route path='/subadminsignup' element={<SubadminSignup/>}/>
      </Route>
-
-      <Route path='/adminlogin' element={<AdminLogin/>}/>
       <Route path='/profilesetup' element={<ProfileSetup/>}/>
-      <Route path='/' element={<Home/>}/>
    </Routes>
   )
 }

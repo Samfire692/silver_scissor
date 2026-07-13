@@ -1,5 +1,5 @@
 import React, { useEffect, useLayoutEffect, useRef } from 'react'
-import vid from "../assets/video/3998509-uhd_4096_2160_25fps.mp4"
+import vid from "../assets/video/WhatsApp Video 2026-07-13 at 17.28.09.mp4"
 import gsap from 'gsap'
 
 export const Hero = () => {
@@ -45,7 +45,7 @@ export const Hero = () => {
   return (
     <div>
       <div className='relative h-screen overflow-hidden'>
-        <video src={vid} autoPlay loop muted playsInline className='absolute inset-0 w-full h-full object-cover'></video>
+        <video src={vid} autoPlay loop muted playsInline preload='metadata' className='absolute inset-0 w-full h-full object-cover'></video>
 
         <div className='inset-0 bg-black/55 absolute text-white flex flex-col justify-center items-center z-10'>
           <div className='px-3'>

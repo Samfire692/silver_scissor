@@ -51,4 +51,12 @@ h3{
   /* color: var(--primary-logoColour); */
 }
 
+.services{
+  background:linear-gradient(rgba(0, 0, 0, 0.68)), url(assets/salon\ background.jfif);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
 /* */

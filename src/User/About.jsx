@@ -33,21 +33,21 @@ export const About = () => {
           stagger:.2
         }, "-=0.4")
 
-    })
+    }, [])
 
     return ()=>ctx.revert();
     })
   
   return (
     <>
-      <div ref={aboutref} className='flex lg:flex-row flex-col-reverse justify-around p-3 mt-3'>
+      <div ref={aboutref} className='flex lg:flex-row flex-col-reverse justify-around p-3 mt-3 h-fit overflow-hidden'>
       <div className='group overflow-hidden rounded-2xl' ref={imgref}>
          <img src={img} alt="" className='w-sm h-100 mx-auto object-cover rounded-xl mt-3 group-hover:scale-110 group transition-all duration-500'/>
       </div>
 
       <div className='lg:w-xl'>
         <div ref={textref}>
-          <h2 className='uppercase text-3xl font-bold text-center' style={{fontFamily:"fantasy", letterSpacing:"2px"}}>About Silver Scissors</h2>
+          <h2 className='text-5xl text-center' style={{fontFamily:"fantasy", letterSpacing:"2px"}}>About Silver Scissors</h2>
           <p className='text-xl mb-1 font-bold mt-2'>More Than Just a Haircut</p>
           <p>
            <span className='block'>
