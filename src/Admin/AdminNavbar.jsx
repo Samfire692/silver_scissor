@@ -90,7 +90,7 @@ export const AdminNavbar = () => {
                  </div>
                </NavLink>
 
-                <NavLink to={"/"} className={({isActive})=> `p-2 rounded-lg ${isActive ? "bg-slate-400 text-white" : "text-slate-300 hover:bg-slate-400 hover:text-white"}`}>
+                <NavLink to={"/adminsignup"} className={({isActive})=> `p-2 rounded-lg ${isActive ? "bg-slate-400 text-white" : "text-slate-300 hover:bg-slate-400 hover:text-white"}`}>
                  <div className='flex gap-1'>
                     <span className='my-auto'>
                         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24">

@@ -241,8 +241,9 @@ export const AdminGallery = () => {
               <div className='h-1.5 w-15 bg-slate-500 rounded-2xl mt-1'></div>
             </div>
 
-            <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2'>
-              {galleryArray.map((gal)=> (
+            <div className='shadow-sm shadow-slate-500 rounded-2xl p-2 h-97 overflow-scroll'>
+              <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 pb-5'>
+                 {galleryArray.map((gal)=> (
                 <>
                   <div key={gal.id} onClick={()=> setView(gal)} className='border-2 rounded-2xl overflow-hidden border-dashed cursor-pointer'>
                    <div>
@@ -251,7 +252,7 @@ export const AdminGallery = () => {
                 </div>
 
                 {view && (
-                 <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-5 overflow-scroll" onClick={() => setView(null)}>
+                 <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-5" onClick={() => setView(null)}>
                   
                   <div className="relative max-w-5xl w-full" onClick={(e) => e.stopPropagation()}>
                   
@@ -281,6 +282,7 @@ export const AdminGallery = () => {
                 )}
                 </>
               ))}
+              </div>
             </div>
         </div>
 

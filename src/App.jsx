@@ -6,7 +6,6 @@ import './App.css'
 import { AdminRouter } from './Admin/AdminRouter'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>

@@ -12,6 +12,7 @@ import { SubadminSignup } from './SubadminSignup';
 import { supabase } from '../supabaseClient';
 import profilepic from '../assets/profile pic.jfif'
 import { ProfileSetup } from './ProfileSetup';
+import { Home } from '../User/Home';
 
 export const AdminRouter = () => {
 
@@ -91,7 +92,7 @@ export const AdminRouter = () => {
          </div>
         </>
      }>
-        <Route path='/' element={<AdminSignup/>}/>
+        <Route path='/adminsignup' element={<AdminSignup/>}/>
         <Route path='/admindashboard' element={<AdminDashboard/>}/>
         <Route path='/adminmanagement' element={<AdminManagement/>}/>
         <Route path='/adminbookings' element={<AdminBookings/>}/>
@@ -101,6 +102,7 @@ export const AdminRouter = () => {
 
       <Route path='/adminlogin' element={<AdminLogin/>}/>
       <Route path='/profilesetup' element={<ProfileSetup/>}/>
+      <Route path='/' element={<Home/>}/>
    </Routes>
   )
 }
