@@ -1,16 +1,48 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom'
+import { supabase } from '../supabaseClient';
 
 export const AdminNavbar = () => {
     const navigate = useNavigate();
+    const [admin, setAdmin] = useState(null);
 
     const logOut = ()=> {
        
        localStorage.clear();
 
     }
+
+    const fetchData = async()=> {
+
+    try{
+      const adminProfile = JSON.parse(localStorage.getItem("AdminProfile"));
+
+      if(!adminProfile){
+      navigate("/adminlogin");
+      }
+
+      const {data:adminData , error:adminError} = await supabase
+      .from("SS_adminsignup")
+      .select("*")
+      .eq("id", adminProfile?.id)
+      .limit(1)
+      .maybeSingle();
+
+      if(adminError) throw adminError;
+      setAdmin(adminData);
+
+    }catch(error){
+       console.log(error.message)
+    }finally{
+
+    }
+  }
+
+  useEffect(()=>{
+    fetchData();
+  }, [])
 
   return (
     <div className='w-60 h-screen navbar overflow-y-auto'>

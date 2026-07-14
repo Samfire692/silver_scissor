@@ -59,4 +59,23 @@ h3{
   background-attachment: fixed;
 }
 
+.swiper-slide{
+    width:320px;
+    transition:.5s;
+}
+
+.swiper-slide-active{
+    transform:scale(1.12);
+}
+
+.swiper-pagination-bullet{
+    background:white !important;
+    opacity:.4;
+}
+
+.swiper-pagination-bullet-active{
+    background:#22c55e !important;
+    opacity:1;
+}
+
 /* */

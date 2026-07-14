@@ -4,6 +4,7 @@ import { AdminGallery } from './Managements/AdminGallery';
 import { AdminReviews } from './Managements/AdminReviews';
 import { AdminContacts } from './Managements/AdminContacts';
 import { AdminPositions } from './Managements/AdminPositions';
+import { AdminBusiness } from './Managements/AdminBusiness';
 
 export const AdminManagement = () => {
 
@@ -18,7 +19,7 @@ export const AdminManagement = () => {
         <button className={`text-white p-2 lg:p-1  border-r border-l hover:bg-slate-400 hover:text-white ${active === "gallery" ? "bg-slate-400/90 text-white font-bold" : " "}`} onClick={()=> setActive("gallery")}>Gallery</button>
         <button className={`text-white p-2 lg:p-1 border-r border-l hover:bg-slate-400 hover:text-white ${active === "position" ? "bg-slate-400/90 text-white font-bold" : " "}`} onClick={()=> setActive("position")}>Position</button>
         <button className={`text-white p-2 lg:p-1 border-r border-l hover:bg-slate-400 hover:text-white ${active === "reviews" ? "bg-slate-400/90 text-white font-bold" : " "}`} onClick={(()=> setActive("reviews"))}>Reviews</button>
-        <button className={`text-white p-2 lg:p-1 border-r border-l hover:bg-slate-400 hover:text-white ${active === "contacts" ? "bg-slate-400/90 text-white font-bold" : " "}`} onClick={()=> setActive("contacts")}>Contacts</button>
+        <button className={`text-white p-2 lg:p-1 border-r border-l hover:bg-slate-400 hover:text-white ${active === "business" ? "bg-slate-400/90 text-white font-bold" : " "}`} onClick={()=> setActive("business")}>Business</button>
       </div>
 
       <div className='p-3 w-full'>
@@ -40,9 +41,9 @@ export const AdminManagement = () => {
           </div>
           )}
 
-         {active === "contacts" && (
-           <div>
-             <AdminContacts/>
+         {active === "business" && (
+           <div className='mt-2'>
+             <AdminBusiness/>
            </div>
           )}
       </div>

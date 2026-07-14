@@ -4,6 +4,7 @@ import { Hero } from './Hero'
 import { About } from './About'
 import { Services } from './Services'
 import { Team } from './Team'
+import { Gallery } from './Gallery'
 
 export const Home = () => {
   return (
@@ -35,6 +36,12 @@ export const Home = () => {
       <section>
         <div>
           <Team/>
+        </div>
+      </section><br />
+
+      <section>
+        <div>
+          <Gallery/>
         </div>
       </section><br />
     </div>
