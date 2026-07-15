@@ -42,7 +42,7 @@ export const AdminManagement = () => {
           )}
 
          {active === "business" && (
-           <div className='mt-2'>
+           <div className=''>
              <AdminBusiness/>
            </div>
           )}

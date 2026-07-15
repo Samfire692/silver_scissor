@@ -5,6 +5,7 @@ import { About } from './About'
 import { Services } from './Services'
 import { Team } from './Team'
 import { Gallery } from './Gallery'
+import { BookingForm } from './BookingForm'
 
 export const Home = () => {
   return (
@@ -42,6 +43,12 @@ export const Home = () => {
       <section>
         <div>
           <Gallery/>
+        </div>
+      </section><br />
+
+      <section>
+        <div>
+          <BookingForm/>
         </div>
       </section><br />
     </div>
