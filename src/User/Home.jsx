@@ -6,6 +6,7 @@ import { Services } from './Services'
 import { Team } from './Team'
 import { Gallery } from './Gallery'
 import { BookingForm } from './BookingForm'
+import { Contact } from './Contact'
 
 export const Home = () => {
   return (
@@ -47,8 +48,9 @@ export const Home = () => {
       </section><br />
 
       <section>
-        <div>
+        <div className='flex justify-evenly flex-col lg:flex-row'>
           <BookingForm/>
+          <Contact/>
         </div>
       </section><br />
     </div>
