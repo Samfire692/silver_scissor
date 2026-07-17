@@ -87,7 +87,6 @@ export const BookingForm = () => {
 
     const selectTime = async(item) => {
       setSelectedtime(item);
-      setDetailsmenu(true);
     }
 
     const times = ()=> {
@@ -176,7 +175,6 @@ export const BookingForm = () => {
         setSelectedteam(null);
         setDatemenu(false);
         setTimemenu(false);
-        setDetailsmenu(false);
         setSelectedtime(null);
         setPreferredcontact(null);
         setFullname(null);
@@ -380,7 +378,7 @@ export const BookingForm = () => {
                   </div>
                  </div>
 
-                 <button className='text-red-500 h-fit my-auto' type='button' onClick={()=> {setSelectedteam(null); setDatemenu(false); setDate(false) ; setDetailsmenu(false) ;setSelectedtime(null)}}>
+                 <button className='text-red-500 h-fit my-auto' type='button' onClick={()=> {setSelectedteam(null); setDatemenu(false); setDate(false); setSelectedtime(null)}}>
                   <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24">
 	                <path d="M0 0h24v24H0z" fill="none" />
 	                <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6.758 17.243L12.001 12m5.243-5.243L12 12m0 0L6.758 6.757M12.001 12l5.243 5.243" />
@@ -444,8 +442,8 @@ export const BookingForm = () => {
           </div>
 
           {/* Details */}
-           {detailsMenu && (
-            <div>
+            {selectedTime && (
+                           <div>
               <div className='mt-2 flex md:flex-row flex-col gap-2'>
                <div className=''>
                   <h2 className='font-bold uppercase mb-1'>Preferred contact</h2>
@@ -538,7 +536,7 @@ export const BookingForm = () => {
             : "Book Appointment"}</button>
            </div>
              </div>
-           )}
+            )}
        </form>
        
        <div className='grid gap-1 mx-auto mt-2'>
