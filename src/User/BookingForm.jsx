@@ -115,7 +115,25 @@ export const BookingForm = () => {
       return `${hour}:${minute.toString().padStart(2,0)}`;
     }
 
-    const availabletimes = times()
+    const availabletimes = times();
+
+    const resetForm = () => {
+  setSelectedprice(null);
+  setBarber(false);
+  setSelectedteam(null);
+  setTeammenu(false);
+  setDatemenu(false);
+  setTimemenu(false);
+  setDate("");
+  setSelectedtime(null);
+  setFullname("");
+  setEmail("");
+  setWhatsappnumber(undefined);
+  setPreferredcontact(null);
+  setNote("");
+
+  setBookedtimes([]);
+}
 
     const submit =async(e)=> {
       e.preventDefault();
@@ -139,7 +157,7 @@ export const BookingForm = () => {
       return;
       }
 
-        if(!selectedPrice || !selectedTeam || !date || !selectedTime || !fullname || !email || !whatsappNumber || !preferredContact){
+        if(!selectedPrice || !selectedTeam || !date || !selectedTime || !detailedContact){
           toast.warning("Fields cant be empty, check again")
           return;
         }
@@ -170,18 +188,7 @@ export const BookingForm = () => {
 
         if(error) throw error;
         toast.success("uploaded successfully");
-        setSelectedprice(null);
-        setBarber(false);
-        setSelectedteam(null);
-        setDatemenu(false);
-        setTimemenu(false);
-        setSelectedtime(null);
-        setPreferredcontact(null);
-        setFullname(null);
-        setEmail(null);
-        setWhatsappnumber(null);
-        setNote(null);
-        setBookedtimes(null);
+         resetForm();
         // console.log(data);
       }catch(error){
         toast.error(error.message);
