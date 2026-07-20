@@ -48,7 +48,7 @@ export const Home = () => {
       </section><br />
 
       <section>
-        <div className='flex justify-evenly flex-col lg:flex-row'>
+        <div className='flex justify-evenly flex-col lg:flex-row gap-2 p-1.5'>
           <BookingForm/>
           <Contact/>
         </div>

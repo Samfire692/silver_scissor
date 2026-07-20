@@ -28,7 +28,7 @@ export const Contact = () => {
     }, [])
 
   return (
-    <div className='p-3'>
+    <div className='p-3 border border-slate-200 rounded-2xl'>
         <div className='text-center'>
             <h2 className='text-5xl mb-1' style={{fontFamily:"fantasy"}}>Contact US</h2>
             <p>Need more information? Get in touch with us.</p>

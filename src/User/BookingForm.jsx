@@ -5,6 +5,7 @@ import { Scissors } from 'lucide-react';
 import PhoneInput from 'react-phone-number-input';
 import { isValidPhoneNumber } from 'react-phone-number-input';
 import "react-phone-number-input/style.css";
+import { useNavigate } from 'react-router-dom';
 
 export const BookingForm = () => {
 
@@ -27,6 +28,7 @@ export const BookingForm = () => {
   const [submitLoading, setSubmitloading] =useState(false);
   const [selectedTime, setSelectedtime]=useState(null);
   const [bookedTimes, setBookedtimes] = useState([]);
+  const navigate = useNavigate();
 
   const fetchData = async()=> {
     try{
@@ -211,7 +213,7 @@ export const BookingForm = () => {
 }, [selectedTeam, selectedPrice, date]);
 
   return (
-    <div className='p-3 lg:w-2xl'>
+    <div className='p-3 lg:w-2xl border border-slate-200 rounded-2xl'>
        <div>
          <h2 className='text-5xl text-center' style={{fontFamily:"fantasy", letterSpacing:"2px"}}>Book An Appointment</h2>
          <p className='text-center mt-2'>Pick a time that works best for you.</p>
@@ -546,11 +548,7 @@ export const BookingForm = () => {
             )}
        </form>
        
-       <div className='grid gap-1 mx-auto mt-2'>
-         <label htmlFor="" className='font-bold uppercase'>Booking Code</label>
-         <input type="text" className='border h-11 p-2' placeholder='Insert your booking code' />
-         <button className='bg-blue-500 text-white p-1.5'>Check</button>
-       </div>
+       <button className='bg-slate-500 text-white w-full mt-2 p-2' onClick={()=> navigate("/booking")}>View Booking</button>
     </div>
   )
 }
