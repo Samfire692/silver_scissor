@@ -16,7 +16,7 @@ import { Home } from '../User/Home';
 
 export const AdminRouter = () => {
 
-  const [navbar , setNavbar] = useState(true);
+  const [navbar , setNavbar] = useState(false);
   const [admin, setAdmin] = useState(null);
   const [dropDown , setDropdown] = useState(false);
   const navigate = useNavigate();

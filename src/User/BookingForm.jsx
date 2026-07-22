@@ -63,7 +63,8 @@ export const BookingForm = () => {
       .select("time")
       .eq("team", selectedTeam?.id)
       .eq("service_price", selectedPrice?.id)
-      .eq("date", date);
+      .eq("date", date)
+      .eq("status", "upcoming")
 
       if(bookedError) throw bookedError;
       setBookedtimes(bookedData.map(item=> Number(item.time)));

@@ -80,7 +80,7 @@ export const Booking = () => {
             <form action="" onSubmit={fetch}>
                 <div className='grid gap-1'>
                     <label htmlFor="" className='font-bold text-lg'>Email or WhatsApp number (<small>required</small>)</label>
-                    <input type="text" placeholder='Input Email or Whatsapp number' className='border h-11 w-full p-3 md:w-md' onChange={(e)=> setSearch(e.target.value)}/>
+                    <input type="text" placeholder='Input Email or Whatsapp number' className='border h-11 w-full p-3' onChange={(e)=> setSearch(e.target.value)}/>
                     <small className='flex gap-1 mt-1.5'><span className='bg-slate-200 w-5 h-5 rounded-full flex justify-center items-center'>?</span> We'll search for bookings linked to this phone number or email.</small>
                 </div>
 

@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import { supabase } from '../supabaseClient';
 import { toast } from 'sonner';
-import { Calendar, Check, Clock } from 'lucide-react';
+import { BookAIcon, Calendar, Check, Clock } from 'lucide-react';
 import { FaCalendar, FaCalendarAlt, FaTimesCircle } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
+import { BookingModal } from './BookingModal';
 
 export const Mybookings = () => {
 
     const [bookingArray, setBookingarray] = useState([]);
     const [customerName, setCustomername] = useState("");
     const [activeState, setActivestate] = useState("all");
+    const [selectedBooking, setSelectedBooking] = useState(null);
 
     const navigate = useNavigate();
 
@@ -39,8 +41,7 @@ export const Mybookings = () => {
         // console.log(customerId);
 
         if (!customerId) {
-         toast.error("No customer found.");
-         return;
+         navigate("/booking")
         }
 
         if(customerId.includes("@")){
@@ -136,8 +137,9 @@ const statusBall = {
     cancelled : "bg-red-500"
 }
 
-const view = async()=> {
-
+const back = ()=> {
+        localStorage.removeItem("CustomerId");
+       navigate(-1)
 }
 
     useEffect(()=> {
@@ -147,7 +149,7 @@ const view = async()=> {
   return (
     <div className='p-2'>
         <div className='flex'>
-            <button className='bg-slate-300 p-2' onClick={()=> navigate(-1)}>
+            <button className='bg-slate-300 p-2' onClick={back}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
 	            <path d="M0 0h24v24H0z" fill="none" />
  	            <g fill="none">
@@ -214,7 +216,7 @@ const view = async()=> {
         {activeState && (
              <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-2.5'>
                 {filteredBooking.map((book, index)=> (
-                 <div className={`border p-2 flex gap-2 justify-between lg:w-md rounded-2xl bg-white w-full shadow-sm ${statusColor[book.status]}`} key={book.id} onClick={()=> view(book.id)}>
+                 <div className={`border p-2 flex gap-2 justify-between lg:w-md rounded-2xl bg-white w-full shadow-sm cursor-pointer ${statusColor[book.status]}`} key={book.id} onClick={()=> setSelectedBooking(book)}>
                    <div className='flex'>
                      <p className='my-auto p-3 rounded-full'>{index + 1}. </p>
 
@@ -230,17 +232,36 @@ const view = async()=> {
                      </div>
 
                      <p className='capitalize flex gap-0.5 mt-1.5'><span className={`w-4.5 h-4.5 my-auto block animate-pulse rounded-full ${statusBall[book.status]}`}></span>{book.status}</p>
+                     <p className="mt-1 text-gray-500 text-sm">Booked on:{" "}
+                        {new Date(book.created_at).toLocaleString("en-GB", {
+                         day: "numeric",
+                         month: "short",
+                         year: "numeric",
+                         hour: "numeric",
+                         minute: "2-digit",
+                         hour12: true,
+                         })}
+                         </p>
                   </div>
                    </div>
 
                    <div className='my-auto'>
                       <span className='text-3xl font-bold block text-slate-900'>£{book.SS_price.price}</span>
-                      <span>{book.SS_price.duration}mins</span>
+                      <span className='text-center block'>{book.SS_price.duration}mins</span>
                    </div>
                  </div>
                 ))}
              </div>
         )}
+
+        {/* modal */}
+         <div className=''>
+           <BookingModal
+           booking={selectedBooking}
+           onClose={()=> setSelectedBooking(null)}
+           refresh={fetchData}
+           />
+         </div>
       </div>
     </div>
   )
