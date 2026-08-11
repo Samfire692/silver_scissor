@@ -29,6 +29,7 @@ export const BookingForm = () => {
   const [selectedTime, setSelectedtime]=useState(null);
   const [bookedTimes, setBookedtimes] = useState([]);
   const navigate = useNavigate();
+  const today = new Date(). toISOString().split("T")[0];
 
   const fetchData = async()=> {
     try{
@@ -414,7 +415,7 @@ export const BookingForm = () => {
              </div>
 
              <div className='mt-1.5'>
-                <input type="date" className='border w-full h-10 p-2' required onChange={(e)=>  setDate(e.target.value)}/>
+             <input type="date" className="border w-full h-10 p-2" required min={new Date().toISOString().split("T")[0]} onChange={(e) => setDate(e.target.value)}/>
              </div>
 
              <div className='md:py-2.5 p-1'>

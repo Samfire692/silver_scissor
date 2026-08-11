@@ -4,11 +4,14 @@ import './index.css'
 import App from './App.jsx'
 import { BrowserRouter } from 'react-router-dom'
 import {Toaster} from 'sonner'
+import { AdminProvider } from './Context/AdminProvider.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
-      <App />
+      <AdminProvider>
+        <App/>
+      </AdminProvider>
       <Toaster richColors position="top-right" />
     </BrowserRouter>
   </StrictMode>,
