@@ -76,7 +76,7 @@ export const Charts = () => {
           {/* date */}
         </div>
 
-        <div className='border w-full h-50 border-slate-300 rounded-2xl'>
+        <div className='border text-black w-full h-50 border-slate-300 rounded-2xl'>
            <p>{bookingMonth.months}</p>
         </div>
     </div>
