@@ -82,7 +82,7 @@ export const AdminRouter = () => {
                     </div>
                 </div><hr className='text-slate-300'/>
 
-                <div className='py-1'>
+                <div className='py-1 min-w-xs'>
                    <Outlet/>
                 </div>
               </div>

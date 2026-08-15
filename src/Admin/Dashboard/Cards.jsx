@@ -69,10 +69,10 @@ export const Cards = () => {
         }
     }, [admin]);
   return (
-    <div className='grid md:grid-cols-4 grid-cols-2 mt-3 gap-3'>
+    <div className='grid lg:grid-cols-4 grid-cols-2 mt-3 gap-3 w-full'>
 
-        <div className='gap-2 hover:shadow-md cursor-pointer border border-purple-400 p-3 rounded-2xl h-40 flex justify-evenly items-center hover:shadow-purple-400 transition-all duration-500'>
-            <p className='my-auto p-3 bg-purple-300/30 text-purple-500 rounded-xl'><Calendar size={25}/></p>
+        <div className='gap-2 hover:shadow-md cursor-pointer border border-purple-400 p-3 rounded-2xl h-40 flex justify-evenly items-center hover:shadow-purple-400 transition-all duration-500 group'>
+            <p className='my-auto p-3 bg-purple-300/30 text-purple-500 rounded-xl group-hover:rotate-360 transition-all duration-1500'><Calendar size={25}/></p>
             <div className='flex flex-col'>
                 <span className='font-bold text-4xl text-center text-purple-500 stats'>{totalBookings}</span>
                 <span className='font-medium text-purple-500'>Bookings</span>
@@ -80,8 +80,8 @@ export const Cards = () => {
             </div>
         </div>
 
-        <div className='gap-2 hover:shadow-md cursor-pointer border border-green-400 p-3 rounded-2xl h-40 flex justify-evenly items-center hover:shadow-green-400 transition-all duration-500'>
-            <p className='my-auto p-3 bg-green-300/30 text-green-500 rounded-xl'><Check size={25}/></p>
+        <div className='gap-2 hover:shadow-md cursor-pointer border border-green-400 p-3 rounded-2xl h-40 flex justify-evenly items-center hover:shadow-green-400 transition-all duration-500 group'>
+            <p className='my-auto p-3 bg-green-300/30 text-green-500 rounded-xl group-hover:rotate-360 transition-all duration-1500'><Check size={25}/></p>
             <div className='flex flex-col text-green-500'>
                 <span className='font-bold text-4xl text-center'>{completedBookings}</span>
                 <span className='font-medium'>Completed</span>
@@ -90,8 +90,8 @@ export const Cards = () => {
               
         </div>
 
-        <div className='gap-2 hover:shadow-md cursor-pointer border border-amber-400 p-3 rounded-2xl h-40 flex justify-evenly items-center hover:shadow-amber-400 transition-all duration-500'>
-            <p className='my-auto p-3 bg-amber-300/30 text-amber-500 rounded-xl'><Clock size={25}/></p>
+        <div className='gap-2 hover:shadow-md cursor-pointer border border-amber-400 p-3 rounded-2xl h-40 flex justify-evenly items-center hover:shadow-amber-400 transition-all duration-500 group'>
+            <p className='my-auto p-3 bg-amber-300/30 text-amber-500 rounded-xl group-hover:rotate-360 transition-all duration-1500'><Clock size={25}/></p>
             <div className='flex flex-col'>
                 <span className='font-bold text-4xl text-center text-amber-500'>{upcomingBookings}</span>
                 <span className='font-medium text-amber-500'>Upcoming</span>
@@ -99,8 +99,8 @@ export const Cards = () => {
             </div>
         </div>
 
-        <div className='gap-2 hover:shadow-md cursor-pointer border border-red-400 p-3 rounded-2xl h-40 flex justify-evenly items-center hover:shadow-red-400 transition-all duration-500'>
-            <p className='my-auto p-3 bg-red-400/30 text-red-500 rounded-xl'><FaTimes size={25} className='rotate-180'/></p>
+        <div className='gap-2 hover:shadow-md cursor-pointer border border-red-400 p-3 rounded-2xl h-40 flex justify-evenly items-center hover:shadow-red-400 transition-all duration-500 group'>
+            <p className='my-auto p-3 bg-red-400/30 text-red-500 rounded-xl group-hover:rotate-360 transition-all duration-1500'><FaTimes size={25} className='rotate-180'/></p>
             <div className='flex flex-col'>
                 <span className='font-bold text-4xl text-center text-red-500'>{cancelledBookings}</span>
                 <span className='font-medium text-red-500'>Cancelled</span>

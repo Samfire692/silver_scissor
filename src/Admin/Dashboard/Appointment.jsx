@@ -84,7 +84,7 @@ export const Appointment = () => {
         }
     }, [admin]);
   return (
-    <div className={`border border-slate-300 mt-3 md:w-2xl w-full p-3 rounded-xl overflow-y-auto ${bookings.length === 0 ? "h-45" : "max-h-77"}`}>
+    <div className={`border border-slate-300 mt-3 w-full p-3 rounded-xl overflow-y-auto ${bookings.length === 0 ? "h-45" : "max-h-77"}`}>
         <div>
           <h2 className='font-bold text-center text-2xl'>Today's Appointment</h2>
         </div><br />

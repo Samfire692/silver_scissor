@@ -7,7 +7,7 @@ import { NextAppointment } from './Dashboard/NextAppointment';
 
 export const AdminDashboard = () => {
   return (
-    <div className='p-2'>
+    <div className='p-2 w-full'>
 {/* greeting */}
      <div className=''>
       <Greetings/>
@@ -18,7 +18,7 @@ export const AdminDashboard = () => {
       <Cards/>
      </div>
 
-     <div className='flex flex-col md:flex-row justify-evenly gap-2'>
+     <div className='grid lg:grid-cols-2 gap-2'>
         <div>
           <Appointment/>
         </div>

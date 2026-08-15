@@ -4,6 +4,7 @@ import { supabase } from '../../supabaseClient';
 import { AdminContext } from '../../Context/AdminProvider';
 import Swal from 'sweetalert2';
 import { CgSpinner } from 'react-icons/cg';
+import { Calendar } from 'lucide-react';
 
 export const NextAppointment = () => {
 
@@ -63,11 +64,11 @@ export const NextAppointment = () => {
        try{
            const result = await Swal.fire({
             icon:"question",
-            title:"Complete",
+            title:"Cancel",
             text:"Are you sure?",
             showCancelButton:true,
-            confirmButtonColor:"green",
-            confirmButtonText:"Complete"
+            confirmButtonColor:"red",
+            confirmButtonText:"Comfirm"
          })
 
          if(!result.isConfirmed)return;
@@ -114,16 +115,20 @@ export const NextAppointment = () => {
         }
     }, [admin])
   return (
-    <div className='border mt-3 md:w-xl mx-auto p-3 rounded-xl border-slate-300'>
+    <div className={`border mt-3 mx-auto p-3 rounded-xl border-slate-300 ${booking.length === 0 ? "h-45" : ""}`}>
         <div>
           <h2 className='text-2xl font-bold text-center'>Next Appointment</h2><br />
 
           {booking.length === 0 ? (
-            <div className='flex justify-center items-center h-17'>
-                <p>No Appointment at this moment</p>
+            <div className='text-center flex flex-col justify-center'>
+                          <Calendar size={40} className='text-slate-400 mx-auto'/>
+                          <p className='font-medium text-lg'>No next appointments today</p>
+                           <p className="text-sm text-slate-400">
+                           You don't have any next appointent today.
+                           </p>
             </div>
           ) : (
-            <div className='h-35 flex items-center justify-center'>
+            <div className='h-40 flex items-center justify-center'>
                 {booking.map((book)=> {
                     const startTime = Number(book.time);
                     const duration = Number(book.SS_price?.duration || 0);
@@ -135,10 +140,7 @@ export const NextAppointment = () => {
                             <div>
                                 <p className='font-medium text-xl'>{book.fullname}</p>
                                 <p className='text-sm uppercase'>{book.SS_price.service_name}</p>
-                            </div>
-
-                            <div className='my-auto'>
-                                <p className='text-center capitalize'>{book.status}</p>
+                                <p className='capitalize'>{book.status}</p>
                             </div>
 
                             <div className='my-auto'>
@@ -146,7 +148,7 @@ export const NextAppointment = () => {
                             </div>
                             </div>
 
-                            <div className='mt-6 flex justify-around gap-2'>
+                            <div className='mt-4 flex justify-around gap-2'>
                                 <button className='border-2 w-full p-1.5 text-green-500 font-bold border-green-500' onClick={()=> complete(book)}>{completedLoading === book.id ? <CgSpinner size={30} className='mx-auto animate-spin'/> : "Completed"}</button>
                                 <button className='border-2 w-full p-1.5 text-red-500 font-bold border-red-500' onClick={()=> cancelled(book)}>{cancelledLoading === book.id ? <CgSpinner size={30} className='mx-auto animate-spin'/> : "Cancelled"}</button>
                             </div>
